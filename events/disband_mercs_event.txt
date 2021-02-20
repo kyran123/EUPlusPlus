@@ -1,0 +1,109 @@
+namespace = disband_mercs
+
+country_event = {
+	id = disband_mercs.1
+	title = disband_mercs.1.t
+	desc = disband_mercs.1.d
+	picture = HOUSE_OF_TRADE_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		ai = yes
+		is_at_war = no
+		any_hired_mercenary_company = {
+			hired_for_months = 2
+		}
+		manpower_percentage = 0.5
+		army_size_percentage = 0.3
+	}
+	
+	immediate = {
+		while = {
+			limit = {
+				is_at_war = no
+				any_hired_mercenary_company = {
+					hired_for_months = 2
+				}
+				manpower_percentage = 0.5
+				army_size_percentage = 0.3
+			}
+			hidden_effect = {
+				random_hired_mercenary_company = {
+					limit = {
+						hired_for_months = 2
+					}
+					disband_mercenary_company = this
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = disband_mercs.1.a
+	}
+}
+
+country_event = {
+	id = disband_mercs.2
+	title = disband_mercs.2.t
+	desc = disband_mercs.2.d
+	picture = HOUSE_OF_TRADE_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		ai = yes
+		is_at_war = no
+		any_hired_mercenary_company = {
+			hired_for_months = 6
+		}
+		is_in_deficit = yes
+		NOT = {
+			army_size_percentage = 0.3
+		}
+	}
+	immediate = {
+		while = {
+			limit = {
+				is_at_war = no
+				is_in_deficit = yes
+				any_hired_mercenary_company = {
+					hired_for_months = 6
+				}
+				manpower = 3
+				NOT = {
+					army_size_percentage = 0.3
+				}
+			}
+			hidden_effect = {
+				random_hired_mercenary_company = {
+					limit = {
+						hired_for_months = 6
+					}
+					disband_mercenary_company = this
+				}
+				while = {
+					limit = {
+						manpower = 3
+						NOT = {
+							army_size_percentage = 0.3
+						}
+					}
+					capital_scope = {
+						add_unit_construction = {
+							type = infantry
+							cost = 0
+							speed = 0
+							amount = 3
+						}	
+					}
+					add_manpower = -3
+				}
+			}
+		}
+	}
+	option = {
+		name = disband_mercs.2.a
+	}
+}
