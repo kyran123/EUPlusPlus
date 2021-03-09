@@ -1,0 +1,200 @@
+######################################################
+# Administrative Advisors
+######################################################
+
+######################################################
+scriber = {
+	monarch_power = ADM
+	
+	# Bonus
+	global_institution_spread = 0.025
+	
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+chancellor = {
+	monarch_power = ADM
+
+	# Bonus
+	global_autonomy	= -0.02
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+chaplain = {
+	monarch_power = ADM
+	
+	# Bonus
+	religious_unity = 0.10
+	
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+sheriff = {
+	monarch_power = ADM
+
+	# Bonus
+	yearly_corruption = -0.05
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+
+
+
+######################################################
+# Diplomatic Advisors
+######################################################
+mariner = {
+	monarch_power = DIP
+
+	# Bonus
+	navy_tradition_decay = -0.015
+	
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+reeve = {
+	monarch_power = DIP
+
+	# Bonus
+	reduced_liberty_desire = 10
+	
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+artist = {
+	monarch_power = DIP
+
+	# Bonus
+	culture_conversion_cost = -0.25
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+propagandist = {
+	monarch_power = DIP
+
+	# Bonus
+	fabricate_claims_cost = -0.25
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+
+######################################################
+# Militaristic Advisors
+######################################################
+highcaptain = {
+	monarch_power = MIL
+
+	# Bonus
+	army_tradition_decay = -0.015
+	
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1.95
+	}
+}
+chamberlain = {
+	monarch_power = MIL
+
+	# Bonus
+	global_regiment_cost = -0.05
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1.1
+	}
+}
+castellan = {
+	monarch_power = MIL
+
+	# Bonus
+	war_exhaustion = -0.05
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+marshall = {
+	monarch_power = MIL
+
+	# Bonus
+	land_attrition = -0.15
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+strategist = {
+	monarch_power = MIL
+
+	# Bonus
+	siege_ability = 0.05
+
+	chance = {
+		factor = 1
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}

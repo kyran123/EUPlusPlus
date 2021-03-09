@@ -1,0 +1,13 @@
+﻿l_english:
+  eupp_alliance_restriction:0 "You cannot ally anyone that rivaled another ally of yours!"
+  request_knowledge_sharing_title:0 "Request knowledge sharing"
+  request_knowledge_sharing_tooltip:0 "Request knowledge sharing"
+  request_knowledge_sharing_dialog:0 ""
+  request_knowledge_sharing_desc:0 ""
+  DIPLOMATIC_REPUTATION_DIPLOMACY_GET:0 "Diplomatic Reputation"
+  TRUST:0 "Trust"
+  NEGATIVE_ATTITIUDE_TOWARDS_ENFORCMENT:0 "Negative Attitude"
+  ARMY_RATIO_SIZE_COMPARISION:0 "Army Ratios Comparision"
+  STABILITY:0 "Stability"
+  LEGITIMACY:0 "Legitimacy"
+  PRESTIGE_COMPARISION:0 "Prestige Comparision"

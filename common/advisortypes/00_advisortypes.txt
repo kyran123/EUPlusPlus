@@ -1,0 +1,71 @@
+philosopher = {
+	monarch_power = ADM
+	
+	# Bonus
+	prestige = 2
+
+	skill_scaled_modifier = { meritocracy = 0.25 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+########################################################################
+colonial_governor = {
+	monarch_power = DIP
+	
+	# Bonus
+	merchants = 1
+	
+	skill_scaled_modifier = { meritocracy = 0.25 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+######################################################################
+army_organiser = {
+	monarch_power = MIL
+	
+	# Bonus
+	land_forcelimit_modifier = 0.10
+	
+	skill_scaled_modifier = { meritocracy = 0.25 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+##################################################################
+quartermaster = {
+	monarch_power = MIL
+	
+	# Bonus
+	reinforce_speed = 0.33
+
+	skill_scaled_modifier = { meritocracy = 0.25 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.4
+			is_at_war = yes
+		}
+	}
+}
