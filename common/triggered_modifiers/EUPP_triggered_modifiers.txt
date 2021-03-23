@@ -1,0 +1,9 @@
+add_advisor_to_pool = {
+	potential = {
+		ai = no
+	}
+	trigger = {
+		ai = no
+	}
+	advisor_pool = 1
+}
