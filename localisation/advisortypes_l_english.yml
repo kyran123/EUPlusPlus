@@ -9,8 +9,6 @@
   mariner_desc:0 "Someone who navigates or assists in navigating fleets or individual ships."
   chaplain:0 "Chaplain"
   chaplain_desc:0 "A chaplain is a cleric or lay representative of a religious tradition."
-  chamberlain:0 "Chamberlain"
-  chamberlain_desc:0 "A chamberlain is a senior royal official in charge of managing a royal household including treasury."
   sheriff:0 "Sheriff"
   sheriff_desc:0 ""
   reeve:0 "Reeve"
