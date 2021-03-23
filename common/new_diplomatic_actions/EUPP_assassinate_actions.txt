@@ -1,0 +1,204 @@
+Attempt_Assassination_Heir = {
+	category = covert
+	require_acceptance = no
+
+	is_visible = {
+		ai = no
+		is_subject = no
+		NOT = {	war_with = FROM	}
+	}
+
+	is_allowed = {
+		has_spy_network_in = {
+			who = FROM
+			value = 50
+		}
+		treasury = 100
+		dip_power = 10
+		FROM = { 
+			has_heir = yes 
+			is_subject = no 
+		}
+		NOT = {
+			AND = {
+				has_country_flag = assassinate_flag
+				has_country_modifier = failed_assassination
+				war_with = FROM
+			}
+		}
+	}
+
+	on_accept = {
+		add_spy_network_in = {
+			who = FROM
+			value = -50
+		}
+		add_treasury = -100
+		add_dip_power = -10
+		FROM = { set_country_flag = assassination_flag }
+		set_country_flag = assassinate_flag
+	}
+
+	on_decline = {}
+	ai_acceptance = {}
+	ai_will_do = {}
+}
+
+AI_Attempt_Assassination_Heir = {
+	category = covert
+	require_acceptance = no
+
+	is_visible = {
+		ai = yes
+		is_subject = no
+		NOT = {
+			has_country_flag = ai_assassinate_flag
+		}
+	}
+
+	is_allowed = {
+		has_spy_network_in = {
+			who = FROM
+			value = 50
+		}
+		dip_power = 10
+		NOT = {
+			AND = {
+				has_country_modifier = failed_assassination
+				war_with = FROM
+			}
+		}
+		FROM = { 
+			has_heir = yes 
+			is_subject = no 
+		}
+	}
+
+	on_accept = {
+		add_spy_network_in = {
+			who = FROM
+			value = -50
+		}
+		add_dip_power = -10
+		FROM = { set_country_flag = ai_assassination_flag }
+		set_country_flag = ai_assassinate_flag
+	}
+
+	on_decline = {}
+	ai_acceptance = {}
+
+	ai_will_do = {
+		is_enemy = FROM
+		prestige = 50
+		has_opinion = { who = FROM value = -200 }
+		ai_attitude = { who = FROM attitude = Hostile }
+		OR = {
+			ruler_has_personality = Militarist
+			ruler_has_personality = Diplomat
+		}
+		diplomatic_reputation = 1
+	}
+}
+
+Attempt_Assassination_Ruler = {
+	category = covert
+	require_acceptance = no
+
+	is_visible = {
+		ai = no
+		is_subject = no
+		NOT = { war_with = FROM }
+	}
+
+	is_allowed = {
+		has_spy_network_in = {
+			who = FROM
+			value = 50
+		}
+		treasury = 100
+		dip_power = 10
+		FROM = {
+			has_regency = no
+			is_subject = no
+		}
+		NOT = {
+			AND = {
+				has_country_flag = assassinate_ruler_flag
+				has_country_modifier = failed_assassination
+				war_with = FROM
+			}
+		}
+	}
+
+	on_accept = {
+		add_spy_network_in = {
+			who = FROM
+			value = -50
+		}
+		add_treasury = -100
+		add_dip_power = -10
+		FROM = { set_country_flag = assassination_ruler_flag }
+		set_country_flag = assassinate_ruler_flag
+	}
+
+	on_decline = {}
+	ai_acceptance = {}
+	ai_will_do = {}
+}
+
+
+AI_Attempt_Assassination_Ruler = {
+	category = covert
+	require_acceptance = no
+
+	is_visible = {
+		ai = yes
+		is_subject = no
+		NOT = {
+			has_country_flag = ai_assassinate_ruler_flag
+		}
+	}
+
+	is_allowed = {
+		has_spy_network_in = {
+			who = FROM
+			value = 50
+		}
+		dip_power = 10
+		FROM = {
+			has_regency = no
+			is_subject = no
+		}
+		NOT = {
+			AND = {
+				has_country_modifier = failed_assassination
+				war_with = FROM
+			}
+		}
+	}
+
+	on_accept = {
+		add_spy_network_in = {
+			who = FROM
+			value = -50
+		}
+		add_dip_power = -10
+		FROM = { set_country_flag = ai_assassination_ruler_flag }
+		set_country_flag = ai_assassinate_ruler_flag
+	}
+
+	on_decline = {}
+	ai_acceptance = {}
+
+	ai_will_do = {
+		is_enemy = FROM
+		prestige = 50
+		has_opinion = { who = FROM value = -200 }
+		ai_attitude = { who = FROM attitude = Hostile }
+		OR = {
+			ruler_has_personality = Militarist
+			ruler_has_personality = Diplomat
+		}
+		diplomatic_reputation = 1
+	}
+}

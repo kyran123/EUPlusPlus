@@ -1,0 +1,61 @@
+﻿l_english:
+  assassinate.1.t: "Assassination attempt"
+  assassinate.1.d: "You have ordered your generals to bring you their best assassins. You picked the most competent looking assassin and start giving him the orders to kill the Heir."
+  assassinate.1.o: "Pray for the best"
+
+  assassinate.2.t: "They should build more steps in their castle!"
+  assassinate.2.d: "The assassin you hired was able to put slick on the stairs that the target always takes when they go to the toilet. Even though the stairs did not have many steps, it was ultimately succesful."
+  assassinate.2.o: "I should do this more often!"
+
+  assassinate.3.t: "A late night trip!"
+  assassinate.3.d: "The assassin was caught trying to sneak into the castle wearing a jester outfit at night. Explaining he was the jester didn't work out, and being threatened to be tortured for life he fessed up and revealed your intentions. Now you have to deal with the mess left behind."
+  assassinate.3.o: "Maybe I should try it again later..."
+
+  assassinate.4.t: "An awkward fall"
+  assassinate.4.d: "The assassin tried to push the target of the bridge as they were taking a night walk. Unfortunately it was just an hallucination and the assassin fell of the bridge himself. Luckily no one seemed to be too suspicious of a dead person at the floating in the river."
+  assassinate.4.o: "I should've spent a little more on someone more competent..."
+
+  assassinate.5.t: "Our heir is at danger!?"
+  assassinate.5.d: "We found a [From.GetAdjective] assassin trying to enter the castle at night wearing a jester outfit. When we questioned him, he fessed up. We threw him into the dungeons quickly after."
+  assassinate.5.o: "We should be wary"
+  assassinate.5.o1: "We should reveal their intentions to the world!"
+  assassinate.5.o2: "Death is the only solution for [From.GetTitle] [From.Monarch.GetName]"
+
+  assassinate.6.t: "At the bottom of the stairs..."
+  assassinate.6.d: "Last night, due to very unfortunate circumstances our precious heir has died falling of the stairs. The steps were surprisingly slippery however, but no one was able to figure out why."
+  assassinate.6.o: "Those bastards must have been behind it!"
+  assassinate.6.o1: "I will make sure to have a proper ceremony held for my precious son."
+
+  
+
+
+  assassinate.8.t: "Assassination attempt"
+  assassinate.8.d: "You have ordered your generals to bring you their best assassins. You picked the most competent looking assassin and start giving him the orders to kill the Ruler."
+  assassinate.8.o: "Pray for the best"
+
+  assassinate.9.t: "A scar(e) for life!"
+  assassinate.9.d: "The assassin you was able to slip into the Castle with a clown suit on. Somehow he was able to sneak past all the guards and make his way into the dark bedroom where he scared the ruler to death. Literally. To death."
+  assassinate.9.o: "I suppose that's one way to do it"
+
+  assassinate.10.t: "Oops, wasn't meant for you!"
+  assassinate.10.d: "Dropping buckets of hot oil wasn't a bad idea, except this assassin targeted the cousin of the ruler isntead. When he realized it wasn't the ruler it was already too late and the oil was pouring right over the poor bystander. Worse is that the assassin got caught and was thrown in the obliette where he kept screaming your name for help."
+  assassinate.10.o: "This must have been the dumbest person I met in my life!"
+
+  assassinate.11.t: "A comet sighted?"
+  assassinate.11.d: "A comet somehow struck the assassin as it was trying to sneak into the castle, leaving a small crater. The rare sighting, certainly attracted a lot of attention from people but the disintegrated body below it went unnoticed."
+  assassinate.11.o: "I don't have enough stability for this..."
+
+  assassinate.12.t: "Watch your step!"
+  assassinate.12.d: "An attempt was made by an [From.GetAdjective] assassin to drop boiling oil over you, but they got your cousin instead. When we threw him into the obliette he revealed the person behind it all."
+  assassinate.12.o: "Increase the guard patrols for the time being."
+  assassinate.12.o1: "Everyone should hear of this!"
+  assassinate.12.o2: "I'm going to make [From.GetTitle] [From.Monarch.GetName] regret his decision..."
+
+  assassinate.13.t: "A sudden death"
+  assassinate.13.d: "[Root.GetTitle] [Root.Monarch.GetName] has died last night when he was sleeping. The cause is unknown, but it must have been a demonic beast or the Grim reaper himself because no other possible evidence is found in the room."
+  assassinate.13.o: "A grand ceremony must be held"
+
+
+  knowledge_sharing.1.t: "Sharing knowledge, Sharing profit"
+  knowledge_sharing.1.d: "Our scholars were well received by the people in the capital [Root.GetCapitalName]! Several donations were made from the people as well as the king!"
+  knowledge_sharing.1.o: "This was a win win!"

@@ -1,0 +1,435 @@
+namespace = assassinate
+
+# 
+#	HEIR ASSASSINATION
+#
+
+country_event = {
+	id = assassinate.1 #Base assassination event
+	title = assassinate.1.t
+	desc = assassinate.1.d
+	picture = ASSASSINATION_eventPicture
+	
+	trigger = {
+		has_country_flag = assassinate_flag
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		name = assassinate.1.o
+		random_list = {
+			5 = {
+				country_event = { id = assassinate.2 }
+			}
+			45 = {
+				country_event = { id = assassinate.3 }
+			}
+			50 = {
+				country_event = { id = assassinate.4 }
+			}
+		}
+		clr_country_flag = assassinate_flag
+	}
+}
+
+country_event = {
+	id = assassinate.2 #Successfull assassination
+	title = assassinate.2.t
+	desc = assassinate.2.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = assassinate.2.o
+		random_country = {
+			limit = { has_country_flag = assassination_flag }
+			kill_heir = yes
+			country_event = {
+				id = assassinate.6
+			}
+			clr_country_flag = assassination_flag
+		}
+	}
+}
+
+country_event = {
+	id = assassinate.3 #backfired assassination
+	title = assassinate.3.t
+	desc = assassinate.3.d
+	picture = ACCUSATION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = assassinate.3.o
+		random_country = {
+			limit = { has_country_flag = assassination_flag }
+			country_event = {
+				id = assassinate.5
+			}
+		}
+		add_country_modifier = {
+			name = failed_assassination
+			duration = 365
+		}
+	}
+}
+
+country_event = {
+	id = assassinate.4 #failed assassination
+	title = assassinate.4.t
+	desc = assassinate.4.d
+	picture = BANKRUPTCY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = assassinate.4.o
+		random_country = {
+			limit = { has_country_flag = assassination_flag }
+			clr_country_flag = assassination_flag
+		}
+	}
+}
+
+country_event = {
+	id = assassinate.5 #Assassination exposed
+	title = assassinate.5.t
+	desc = assassinate.5.d
+	picture = ACCUSATION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = assassinate.5.o
+		clr_country_flag = assassination_flag
+	}
+
+	option = {
+		name = assassinate.5.o1
+		trigger = {
+			OR = {
+				ruler_has_personality = loose_lips_personality
+				ruler_has_personality = malevolent_personality
+			}
+		}
+		highlight = yes
+		FROM = {
+			add_country_modifier = {
+				name = failed_assassination
+				duration = 730
+			}
+		}
+		add_opinion = { who = FROM modifier = assassination_backfired }
+		clr_country_flag = assassination_flag
+	}
+
+	option = {
+		name = assassinate.5.o2
+		trigger = {
+			ruler_has_personality = malevolent_personality
+		}
+		highlight = yes
+		FROM = {
+			add_country_modifier = {
+				name = failed_assassination
+				duration = 1825
+			}
+		}
+		clr_country_flag = assassination_flag
+	}
+}
+
+country_event = {
+	id = assassinate.6 #Heir has died
+	title = assassinate.6.t
+	desc = assassinate.6.d
+	picture = ASSASSINATION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = assassinate.6.o
+	}
+
+	option = {
+		name = assassinate.6.o1
+	}
+}
+
+country_event = { #AI ONLY
+	id = assassinate.7 #Base assassination event
+	title = assassinate.7.t
+	desc = assassinate.7.d
+	picture = ASSASSINATION_eventPicture
+	
+	trigger = {
+		has_country_flag = ai_assassinate_flag
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		name = assassinate.7.o
+		random_list = {
+			5 = {
+				random_country = {
+					limit = { has_country_flag = ai_assassination_flag }
+					kill_heir = yes
+					country_event = {
+						id = assassinate.6
+						days = 2
+						random = 7
+					}	
+				}
+			}
+			50 = {
+				add_country_modifier = {
+					name = failed_assassination
+					duration = 365
+				}
+			}
+			45 = {
+				random_country = {
+					limit = { has_country_flag = ai_assassination_flag }
+					country_event = {
+						id = assassinate.5
+						days = 2
+						random = 7
+					}				
+				}
+			}
+		}
+		clr_country_flag = ai_assassinate_flag
+		random_country = {
+			limit = { has_country_flag = ai_assassination_flag }
+			clr_country_flag = ai_assassination_flag
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+# 
+#	RULER ASSASSINATION
+#
+
+country_event = {
+	id = assassinate.8 #Base assassination for ruler event
+	title = assassinate.8.t
+	desc = assassinate.8.d
+	picture = ASSASSINATION_eventPicture
+
+	trigger = {
+		has_country_flag = assassinate_ruler_flag
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		name = assassinate.8.o
+		random_list = {
+			55 = {
+				country_event = { id = assassinate.9 }
+			}
+			45 = {
+				country_event = { id = assassinate.10 }
+			}
+			50 = {
+				country_event = { id = assassinate.11 }
+			}
+		}
+		clr_country_flag = assassinate_ruler_flag
+	}
+}
+
+country_event = {
+	id = assassinate.9 #Successfull assassination
+	title = assassinate.9.t
+	desc = assassinate.9.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = assassinate.9.o
+		random_country = {
+			limit = { has_country_flag = assassination_ruler_flag }
+			kill_ruler = yes
+			country_event = {
+				id = assassinate.13
+			}
+			clr_country_flag = assassination_ruler_flag
+		}
+	}
+}
+
+country_event = {
+	id = assassinate.10 #backfired assassination
+	title = assassinate.10.t
+	desc = assassinate.10.d
+	picture = ACCUSATION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = assassinate.10.o
+		random_country = {
+			limit = { has_country_flag = assassination_ruler_flag }
+			country_event = {
+				id = assassinate.12
+			}
+		}
+		add_country_modifier = {
+			name = failed_assassination
+			duration = 365
+		}
+	}
+}
+
+country_event = {
+	id = assassinate.11 #failed assassination
+	title = assassinate.11.t
+	desc = assassinate.11.d
+	picture = BANKRUPTCY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = assassinate.11.o
+		random_country = {
+			limit = { has_country_flag = assassination_ruler_flag }
+			clr_country_flag = assassination_ruler_flag
+		}
+	}
+}
+
+country_event = {
+	id = assassinate.12 #Assassination exposed
+	title = assassinate.12.t
+	desc = assassinate.12.d
+	picture = ACCUSATION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = assassinate.12.o
+		clr_country_flag = assassination_ruler_flag
+	}
+
+	option = {
+		name = assassinate.12.o1
+		trigger = {
+			OR = {
+				ruler_has_personality = loose_lips_personality
+				ruler_has_personality = malevolent_personality
+			}
+		}
+		highlight = yes
+		FROM = {
+			add_country_modifier = {
+				name = failed_assassination
+				duration = 730
+			}
+		}
+		clr_country_flag = assassination_ruler_flag
+	}
+
+	option = {
+		name = assassinate.12.o2
+		trigger = {
+			ruler_has_personality = malevolent_personality
+		}
+		highlight = yes
+		FROM = {
+			add_country_modifier = {
+				name = failed_assassination
+				duration = 1825
+			}
+		}
+		clr_country_flag = assassination_ruler_flag
+	}
+}
+
+country_event = {
+	id = assassinate.13 #Ruler has died
+	title = assassinate.13.t
+	desc = assassinate.13.d
+	picture = ASSASSINATION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = assassinate.13.o
+	}
+}
+
+
+country_event = { #AI ONLY
+	id = assassinate.14 #Base assassination of ruler event
+	title = assassinate.14.t
+	desc = assassinate.14.d
+	picture = ASSASSINATION_eventPicture
+	
+	trigger = {
+		has_country_flag = ai_assassinate_ruler_flag
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		name = assassinate.14.o
+		random_list = {
+			5 = {
+				random_country = {
+					limit = { has_country_flag = ai_assassination_ruler_flag }
+					kill_heir = yes
+					country_event = {
+						id = assassinate.10
+						days = 2
+						random = 7
+					}	
+				}
+			}
+			50 = {
+				add_country_modifier = {
+					name = failed_assassination
+					duration = 365
+				}
+			}
+			45 = {
+				random_country = {
+					limit = { has_country_flag = ai_assassination_ruler_flag }
+					country_event = {
+						id = assassinate.12
+						days = 2
+						random = 7
+					}				
+				}
+			}
+		}
+		clr_country_flag = ai_assassinate_ruler_flag
+		random_country = {
+			limit = { has_country_flag = ai_assassination_ruler_flag }
+			clr_country_flag = ai_assassination_ruler_flag
+		}
+	}
+}

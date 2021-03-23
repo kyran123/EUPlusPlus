@@ -1,0 +1,3 @@
+failed_assassination = {
+	diplomatic_reputation = -1
+}
