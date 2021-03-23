@@ -1,0 +1,235 @@
+#alert index:
+#20 bamboo_stick
+#21 invite_to_empire
+
+Request_Knowledge_Sharing = {
+	category = economy
+	alert_index = 19
+	alert_tooltip = requested_knowledge_sharing
+	require_acceptance = yes
+
+	is_visible = {
+		is_subject = no
+	}
+
+	is_allowed = {
+		is_in_deficit = no
+		is_bankrupt = no
+		has_unembraced_institution = yes
+		OR = {
+			alliance_with = FROM
+			has_opinion = {
+				who = FROM
+				value = 100
+			}
+		}
+		years_of_income = 0.2
+		FROM = {
+			institution_difference = { who = ROOT value = 1 }
+		}
+	}
+
+	on_accept = {
+		add_years_of_income = -0.15
+		every_owned_province = {
+			limit = {
+				is_in_capital_area = yes
+			}
+			add_next_institution_embracement = 5	
+		}
+		ROOT = { save_global_event_target_as = requested_knowledge_sharing }
+		FROM = { country_event = { id = knowledge_sharing.1 days = 10 } }
+	}
+
+	ai_acceptance = {
+		add_entry = {
+			name = RESISTANCE
+			export_to_variable = {
+				which = ai_value
+				value = -10
+			}
+		}
+		add_entry = {
+			name = FROM_ATTITUDE_TOWARDS_ROOT
+			limit = {
+				FROM = {
+					OR = {
+						ai_attitude = { who = ROOT attitude = attitude_allied }
+						ai_attitude = { who = ROOT attitude = attitude_friendly }
+					}
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 5
+			}
+		}
+		add_entry = {
+			name = FROM_ATTITUDE_TOWARDS_ROOT
+			limit = {
+				FROM = {
+					OR = {
+						ai_attitude = { who = ROOT attitude = attitude_neutral }
+						ai_attitude = { who = ROOT attitude = attitude_protective }
+					}
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 10
+			}
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = FROM_ATTITUDE_TOWARDS_ROOT
+			limit = {
+				FROM = {
+					OR = {
+						ai_attitude = { who = ROOT attitude = attitude_threatened }
+						ai_attitude = { who = ROOT attitude = attitude_outraged }
+						ai_attitude = { who = ROOT attitude = attitude_rivalry }
+						ai_attitude = { who = ROOT attitude = attitude_hostile }
+						ai_attitude = { who = ROOT attitude = attitude_domineering }
+						ai_attitude = { who = ROOT attitude = attitude_unknown }
+					}
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 1000
+			}
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = FROM_HAS_MARRIAGE_WITH_ROOT
+			limit = {
+				marriage_with = FROM
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 5
+			}
+		}
+		add_entry = {
+			name = TRUST
+			limit = {
+				FROM = {
+					trust = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 10
+			}
+		}
+		add_entry = {
+			name = TRUST
+			limit = {
+				FROM = {
+					NOT = {
+						trust = {
+							who = ROOT
+							value = 30
+						}
+					}
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 1000
+			}
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = ROOT_FROM_NOT_SAME_RELIGION
+			limit = {
+				NOT = { religion = FROM }
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 50
+			}
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = ROOT_FROM_SAME_RELIGION
+			limit = {
+				religion = FROM
+			}
+			export_to_variable = {
+				which = ai_value
+				value = 10
+			}
+		}
+		add_entry = {
+			name = MODIFIER_DIPLO_SKILL
+			export_to_variable = {
+				which = ai_value
+				value = modifier:diplomatic_reputation
+			}
+			multiply_variable = { which = ai_value value = 3 }
+		}
+		add_entry = {
+			name = OPINION
+			limit = {
+				FROM = {
+					has_opinion = { who = ROOT value = 0 }
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = opinion
+				who = FROM
+			}
+			divide_variable = { which = ai_value value = 10 }
+		}
+		add_entry = {
+			name = INCOME
+			limit = { NOT = { monthly_income = 10 } }
+			export_to_variable = {
+				which = ai_value
+				value = monthly_income
+			}
+		}
+		add_entry = {
+			name = INCOME
+			limit = {
+				monthly_income = 10
+				NOT = {
+					monthly_income = 50
+				}
+			}
+			export_to_variable = {
+				which = ai_value
+				value = monthly_income
+			}
+			multiply_variable = { which = ai_value value = -1 }
+			change_variable = { which = ai_value value = 50 }
+		}
+		add_entry = {
+			name = INCOME
+			limit = {
+				monthly_income = 50
+			}
+			export_to_variable = {
+				which = ai_value
+				value = -5
+			}
+		}
+		add_entry = {
+			name = BORDER_DISTANCE
+			export_to_variable = {
+				which = ai_value
+				value = border_distance
+				who = FROM
+				with = ROOT
+			}
+			divide_variable = { which = ai_value value = -5 }
+		}
+	}
+
+	ai_will_do = { factor = 1000 }	
+}
