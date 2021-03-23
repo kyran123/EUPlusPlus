@@ -7,7 +7,7 @@ scriber = {
 	monarch_power = ADM
 	
 	# Bonus
-	global_institution_spread = 0.025
+	global_institution_spread = 0.25
 	
 
 	chance = {
@@ -71,7 +71,7 @@ mariner = {
 	monarch_power = DIP
 
 	# Bonus
-	navy_tradition_decay = -0.015
+	navy_tradition_decay = -0.025
 	
 	chance = {
 		factor = 1
@@ -132,28 +132,14 @@ highcaptain = {
 	monarch_power = MIL
 
 	# Bonus
-	army_tradition_decay = -0.015
+	army_tradition_decay = -0.025
 	
 	chance = {
 		factor = 1
 	}
 
 	ai_will_do = {
-		factor = 1.95
-	}
-}
-chamberlain = {
-	monarch_power = MIL
-
-	# Bonus
-	global_regiment_cost = -0.05
-
-	chance = {
 		factor = 1
-	}
-
-	ai_will_do = {
-		factor = 1.1
 	}
 }
 castellan = {
