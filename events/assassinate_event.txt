@@ -4,8 +4,8 @@ namespace = assassinate
 #	HEIR ASSASSINATION
 #
 
-country_event = {
-	id = assassinate.1 #Base assassination event
+country_event = { #Base assassination event for heir
+	id = assassinate.1
 	title = assassinate.1.t
 	desc = assassinate.1.d
 	picture = ASSASSINATION_eventPicture
@@ -269,8 +269,8 @@ country_event = { #AI ONLY
 #	RULER ASSASSINATION
 #
 
-country_event = {
-	id = assassinate.8 #Base assassination for ruler event
+country_event = { #Base assassination for ruler event
+	id = assassinate.8
 	title = assassinate.8.t
 	desc = assassinate.8.d
 	picture = ASSASSINATION_eventPicture
@@ -341,8 +341,8 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = assassinate.9 #Successfull assassination
+country_event = { #Successfull assassination
+	id = assassinate.9
 	title = assassinate.9.t
 	desc = assassinate.9.d
 	picture = GOOD_WITH_MONARCH_eventPicture
@@ -362,8 +362,8 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = assassinate.10 #backfired assassination
+country_event = { #backfired assassination
+	id = assassinate.10
 	title = assassinate.10.t
 	desc = assassinate.10.d
 	picture = ACCUSATION_eventPicture
@@ -385,8 +385,8 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = assassinate.11 #failed assassination
+country_event = { #failed assassination
+	id = assassinate.11
 	title = assassinate.11.t
 	desc = assassinate.11.d
 	picture = BANKRUPTCY_eventPicture
@@ -402,8 +402,8 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = assassinate.12 #Assassination exposed
+country_event = { #Assassination exposed
+	id = assassinate.12
 	title = assassinate.12.t
 	desc = assassinate.12.d
 	picture = ACCUSATION_eventPicture
@@ -449,8 +449,8 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = assassinate.13 #Ruler has died
+country_event = { #Ruler has died
+	id = assassinate.13
 	title = assassinate.13.t
 	desc = assassinate.13.d
 	picture = ASSASSINATION_eventPicture
@@ -462,9 +462,8 @@ country_event = {
 	}
 }
 
-
 country_event = { #AI ONLY
-	id = assassinate.14 #Base assassination of ruler event
+	id = assassinate.14
 	title = assassinate.14.t
 	desc = assassinate.14.d
 	picture = ASSASSINATION_eventPicture
