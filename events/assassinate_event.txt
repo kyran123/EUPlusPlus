@@ -17,26 +17,67 @@ country_event = {
 	mean_time_to_happen = {
 		months = 3
 	}
+	
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = { has_country_flag = assassination_ruler_flag }
+				export_to_variable = {
+					which = age
+					value = heir_age
+				}
+			}
+		}
+	}
 
 	option = {
 		name = assassinate.1.o
-		random_list = {
-			5 = {
-				country_event = { id = assassinate.2 }
+		if = { #If the age is between 0 & 30
+			limit = { AND = { check_variable = { which = age value = 0 } NOT = { check_variable = { which = age value = 30 } } } }
+			random_list = {
+				20 = { country_event = { id = assassinate.2 } }		#Success
+				50 = { country_event = { id = assassinate.3 } } 	#Failed
+				30 = { country_event = { id = assassinate.4 } }		#Backfired
 			}
-			45 = {
-				country_event = { id = assassinate.3 }
+		}
+		if = { #If the age is between 30 & 40
+			limit = { AND = { check_variable = { which = age value = 30 } NOT = { check_variable = { which = age value = 40 } } } }
+			random_list = {
+				25 = { country_event = { id = assassinate.2 } }		#Success
+				45 = { country_event = { id = assassinate.3 } }		#Failed
+				30 = { country_event = { id = assassinate.4 } }		#Backfired
 			}
-			50 = {
-				country_event = { id = assassinate.4 }
+		}
+		if = { #If the age is between 40 & 50
+			limit = { AND = { check_variable = { which = age value = 40 } NOT = { check_variable = { which = age value = 50 } } } }
+			random_list = {
+				30 = { country_event = { id = assassinate.2 } }		#Success
+				40 = { country_event = { id = assassinate.3 } }		#Failed
+				30 = { country_event = { id = assassinate.4 } }		#Backfired
+			}
+		}
+		if = { #If the age is between 50 & 60
+			limit = { AND = { check_variable = { which = age value = 50 } NOT = { check_variable = { which = age value = 60 } } } }
+			random_list = {
+				35 = { country_event = { id = assassinate.2 } }		#Success
+				35 = { country_event = { id = assassinate.3 } }		#Failed
+				30 = { country_event = { id = assassinate.4 } }		#Backfired
+			}
+		}
+		if = { #If the age is higher than 60
+			limit = { check_variable = { which = age value = 60 } }
+			random_list = {
+				40 = { country_event = { id = assassinate.2 } }		#Success
+				35 = { country_event = { id = assassinate.3 } }		#Failed
+				25 = { country_event = { id = assassinate.4 } }		#Backfired
 			}
 		}
 		clr_country_flag = assassinate_flag
 	}
 }
 
-country_event = {
-	id = assassinate.2 #Successfull assassination
+country_event = { #Successfull assassination
+	id = assassinate.2
 	title = assassinate.2.t
 	desc = assassinate.2.d
 	picture = GOOD_WITH_MONARCH_eventPicture
@@ -56,8 +97,8 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = assassinate.3 #backfired assassination
+country_event = { #backfired assassination
+	id = assassinate.3
 	title = assassinate.3.t
 	desc = assassinate.3.d
 	picture = ACCUSATION_eventPicture
@@ -79,8 +120,8 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = assassinate.4 #failed assassination
+country_event = { #failed assassination
+	id = assassinate.4
 	title = assassinate.4.t
 	desc = assassinate.4.d
 	picture = BANKRUPTCY_eventPicture
@@ -96,8 +137,8 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = assassinate.5 #Assassination exposed
+country_event = { #Assassination exposed
+	id = assassinate.5
 	title = assassinate.5.t
 	desc = assassinate.5.d
 	picture = ACCUSATION_eventPicture
@@ -144,8 +185,8 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = assassinate.6 #Heir has died
+country_event = { #Heir has died
+	id = assassinate.6
 	title = assassinate.6.t
 	desc = assassinate.6.d
 	picture = ASSASSINATION_eventPicture
@@ -242,17 +283,58 @@ country_event = {
 		months = 3
 	}
 
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = { has_country_flag = assassination_ruler_flag }
+				export_to_variable = {
+					which = age
+					value = ruler_age
+				}
+			}
+		}
+	}
+
 	option = {
 		name = assassinate.8.o
-		random_list = {
-			55 = {
-				country_event = { id = assassinate.9 }
+		if = { #If the age is between 0 & 30
+			limit = { AND = { check_variable = { which = age value = 0 } NOT = { check_variable = { which = age value = 30 } } } }
+			random_list = {
+				20 = { country_event = { id = assassinate.9 } }		#Success
+				50 = { country_event = { id = assassinate.10 } } 	#Failed
+				30 = { country_event = { id = assassinate.11 } }	#Backfired
 			}
-			45 = {
-				country_event = { id = assassinate.10 }
+		}
+		if = { #If the age is between 30 & 40
+			limit = { AND = { check_variable = { which = age value = 30 } NOT = { check_variable = { which = age value = 40 } } } }
+			random_list = {
+				25 = { country_event = { id = assassinate.9 } }		#Success
+				45 = { country_event = { id = assassinate.10 } }	#Failed
+				30 = { country_event = { id = assassinate.11 } }	#Backfired
 			}
-			50 = {
-				country_event = { id = assassinate.11 }
+		}
+		if = { #If the age is between 40 & 50
+			limit = { AND = { check_variable = { which = age value = 40 } NOT = { check_variable = { which = age value = 50 } } } }
+			random_list = {
+				30 = { country_event = { id = assassinate.9 } }		#Success
+				40 = { country_event = { id = assassinate.10 } }	#Failed
+				30 = { country_event = { id = assassinate.11 } }	#Backfired
+			}
+		}
+		if = { #If the age is between 50 & 60
+			limit = { AND = { check_variable = { which = age value = 50 } NOT = { check_variable = { which = age value = 60 } } } }
+			random_list = {
+				35 = { country_event = { id = assassinate.9 } }		#Success
+				35 = { country_event = { id = assassinate.10 } }	#Failed
+				30 = { country_event = { id = assassinate.11 } }	#Backfired
+			}
+		}
+		if = { #If the age is higher than 60
+			limit = { check_variable = { which = age value = 60 } }
+			random_list = {
+				40 = { country_event = { id = assassinate.9 } }		#Success
+				35 = { country_event = { id = assassinate.10 } }	#Failed
+				25 = { country_event = { id = assassinate.11 } }	#Backfired
 			}
 		}
 		clr_country_flag = assassinate_ruler_flag
