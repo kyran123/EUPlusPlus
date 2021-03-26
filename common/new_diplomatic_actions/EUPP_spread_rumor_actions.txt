@@ -1,0 +1,31 @@
+Spread_Rumor = {
+	category = covert
+	require_acceptance = no
+
+	is_visible = {
+		ai = no
+		is_subject = no
+		NOT = {	war_with = FROM	}
+	}
+
+	is_allowed = {
+		has_spy_network_in = {
+			who = FROM
+			value = 20
+		}
+	}
+
+	on_accept = {
+		add_spy_network_in = {
+			who = FROM 
+			value = -20
+		}
+		FROM = { set_country_flag = spread_rumors }
+		every_ally = {
+			country_event = { id = spread_rumor.1 days = 1 }
+		}
+		country_event = { id = spread_rumor.2 days = 3 }
+	}
+
+	ai_will_do = {}
+}

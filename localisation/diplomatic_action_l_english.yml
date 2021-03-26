@@ -13,3 +13,7 @@
   Request_Knowledge_Sharing_tooltip: "Request several scholars from [Root.GetName] to spread the newly found knowledge in our capital! At the price of 15% of our yearly income."
   Request_Knowledge_Sharing_alert_tooltip: "[Root.GetName] is requesting for our scholars to spread the new knowledge we have found!"
   Request_Knowledge_Sharing_dialog: "[Root.GetName] is requesting for our scholars to spread the new knowledge we have found!"
+  Spread_Rumor: "Spread rumors"
+  Spread_Rumor_title: "Spread rumors"
+  Spread_Rumor_desc: "Spread fake rumors to greatly hurt the relations between your allies."
+  Spread_Rumor_tooltip: "Spread fake rumors to greatly hurt the relations between your allies."

@@ -59,3 +59,8 @@
   knowledge_sharing.1.t: "Sharing knowledge, Sharing profit"
   knowledge_sharing.1.d: "Our scholars were well received by the people in the capital [Root.GetCapitalName]! Several donations were made from the people as well as the king!"
   knowledge_sharing.1.o: "This was a win win!"
+
+
+  spread_rumor.1.t: "Rumors are spreading"
+  spread_rumor.1.d: "Over the last few weeks rumors have been spreading and you might have to take a close look at these."
+  spread_rumor.1.o: "These must be real right?"

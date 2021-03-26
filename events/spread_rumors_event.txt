@@ -1,0 +1,161 @@
+namespace = spread_rumor
+
+country_event = {
+	id = spread_rumor.1
+	title = spread_rumor.1.t
+	desc = spread_rumor.1.d
+	picture = ACCUSATION_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = { has_country_flag = spread_rumors }
+				save_event_target_as = target
+			}
+			export_to_variable = { which = opinion_reduction value = border_distance who = event_target:target }
+			if = { 
+				limit = { NOT = { check_variable = { which = opinion_reduction value = 25 } } }
+				change_variable = {
+					which = opinion_reduction
+					value = 40
+				}
+			}
+			if = {
+				limit = { check_variable = { which = opinion_reduction value = 50 } }
+				divide_variable = { which = opinion_reduction value = 2 }
+			}
+			if = {
+				limit = { check_variable = { which = opinion_reduction value = 100 } }
+				divide_variable = { which = opinion_reduction value = 2 }
+			}
+		}
+	}
+
+	option = {
+		name = spread_rumor.1.o
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			#Base reluctance
+			change_variable = {
+				which = opinion_reduction
+				value = 25
+			}
+			#Ruler traits of ally
+			if = { limit = { ruler_has_personality = careful_personality } change_variable = { which = opinion_reduction value = 25 } }
+			if = { limit = { ruler_has_personality = calm_personality } change_variable = { which = opinion_reduction value = 25 } }
+			if = { limit = { ruler_has_personality = intricate_web_weaver_personality } change_variable = { which = opinion_reduction value = 50 } }
+			if = { limit = { ruler_has_personality = incorruptible_personality } change_variable = { which = opinion_reduction value = 50 } }
+			if = { limit = { ruler_has_personality = well_advised_personality } change_variable = { which = opinion_reduction value = 15 } }
+			if = { limit = { ruler_has_personality = naive_personality } subtract_variable = { which = opinion_reduction value = 10 } }
+			#Ruler traits of FROM
+			if = { limit = { FROM = { ruler_has_personality = charismatic_negotiator_personality } } subtract_variable = { which = opinion_reduction value = 50 } }
+			if = { limit = { FROM = { ruler_has_personality = silver_tongue_personality } } subtract_variable = { which = opinion_reduction value = 10 } }
+			if = { limit = { FROM = { ruler_has_personality = tactical_genius_personality } } subtract_variable = { which = opinion_reduction value = 10 } }
+			if = { limit = { FROM = { ruler_has_personality = fierce_negotiator_personality } } subtract_variable = { which = opinion_reduction value = 20 } }
+			if = { limit = { FROM = { ruler_has_personality = babbling_buffoon_personality } } change_variable = { which = opinion_reduction value = 35 } }
+			#The relation between ally and FROM is considered
+			if = { limit = { AND = { has_opinion = { who = FROM value = 50 } NOT = { has_opinion = { who = FROM value = 100 } } } } subtract_variable = { which = opinion_reduction value = 15 } }
+			if = { limit = { AND = { has_opinion = { who = FROM value = 100 } NOT = { has_opinion = { who = FROM value = 150 } } } } subtract_variable = { which = opinion_reduction value = 25 } }
+			if = { limit = { AND = { has_opinion = { who = FROM value = 150 } NOT = { has_opinion = { who = FROM value = 180 } } } } subtract_variable = { which = opinion_reduction value = 45 } }
+			if = { limit = { AND = { has_opinion = { who = FROM value = 180 } NOT = { has_opinion = { who = FROM value = 190 } } } } subtract_variable = { which = opinion_reduction value = 65 } }
+			if = { limit = { AND = { has_opinion = { who = FROM value = 190 } NOT = { has_opinion = { who = FROM value = 200 } } } } subtract_variable = { which = opinion_reduction value = 75 } }
+			#The relation between ally and event_target:target is considered
+			if = { limit = { AND = { has_opinion = { who = event_target:target value = 150 } NOT = { has_opinion = { who = event_target:target value = 200 } } } } change_variable = { which = opinion_reduction value = 25 } }
+			if = { limit = { AND = { has_opinion = { who = event_target:target value = 100 } NOT = { has_opinion = { who = event_target:target value = 150 } } } } change_variable = { which = opinion_reduction value = 15 } }
+			if = { limit = { AND = { has_opinion = { who = event_target:target value = -50 } NOT = { has_opinion = { who = event_target:target value = 0 } } } } subtract_variable = { which = opinion_reduction value = 5 } }
+			if = { limit = { AND = { has_opinion = { who = event_target:target value = -100 } NOT = { has_opinion = { who = event_target:target value = -50 } } } } subtract_variable = { which = opinion_reduction value = 10 } }
+			if = { limit = { AND = { has_opinion = { who = event_target:target value = -200 } NOT = { has_opinion = { who = event_target:target value = -100 } } } } subtract_variable = { which = opinion_reduction value = 15 } }
+			#The AI attitude towards FROM is considered
+			if = { limit = { ai_attitude = { who = FROM attitude = attitude_allied } } subtract_variable = { which = opinion_reduction value = 10 } }
+			if = { limit = { ai_attitude = { who = FROM attitude = attitude_friendly } } subtract_variable = { which = opinion_reduction value = 25 } }
+			if = { 
+				limit = { 
+					OR = {
+						ai_attitude = { who = FROM attitude = attitude_protective }
+						ai_attitude = { who = FROM attitude = attitude_domineering }
+						ai_attitude = { who = FROM attitude = attitude_threatened }
+					} 
+				}
+				change_variable = { which = opinion_reduction value = 50 }
+			}
+			#The AI attitude towards event_target:target is considered
+			if = { limit = { ai_attitude = { who = event_target:target attitude = attitude_rivalry } } subtract_variable = { which = opinion_reduction value = 50 } }
+			if = { limit = { ai_attitude = { who = event_target:target attitude = attitude_friendly } } change_variable = { which = opinion_reduction value = 40 } }
+			if = { limit = { ai_attitude = { who = event_target:target attitude = attitude_protective } } change_variable = { which = opinion_reduction value = 25 } }
+			if = { 
+				limit = { 
+					AND = { 
+						ai_attitude = { who = event_target:target attitude = attitude_outraged } 
+						ai_attitude = { who = event_target:target attitude = attitude_hostile } 
+						ai_attitude = { who = event_target:target attitude = attitude_defensive } 
+					}
+				} 
+				subtract_variable = { which = opinion_reduction value = 30 } 
+			}
+			#The trust between ally and FROM is considered
+			if = { limit = { AND = { trust = { who = FROM value = 0 } NOT = { trust = { who = FROM value = 35 } } } } change_variable = { which = opinion_reduction value = 100 } }
+			if = { limit = { AND = { trust = { who = FROM value = 35 } NOT = { trust = { who = FROM value = 50 } } } } change_variable = { which = opinion_reduction value = 25 } }
+			if = { limit = { AND = { trust = { who = FROM value = 50 } NOT = { trust = { who = FROM value = 60 } } } } subtract_variable = { which = opinion_reduction value = 10 } }
+			if = { limit = { AND = { trust = { who = FROM value = 60 } NOT = { trust = { who = FROM value = 70 } } } } subtract_variable = { which = opinion_reduction value = 25 } }
+			if = { limit = { AND = { trust = { who = FROM value = 70 } NOT = { trust = { who = FROM value = 80 } } } } subtract_variable = { which = opinion_reduction value = 40 } }
+			if = { limit = { trust = { who = FROM value = 80 } } subtract_variable = { which = opinion_reduction value = 50 } }
+			#The rivals of allies are considered
+			if = { limit = { is_rival = event_target:target } subtract_variable = { which = opinion_reduction value = 50 } }
+			#The religion of event_target:target is considered
+			if = { limit = { NOT = { religion = event_target:target } } subtract_variable = { which = opinion_reduction value = 100 } }
+			if = { limit = { religion = event_target:target } change_variable = { which = opinion_reduction value = 20 } }
+			#If event_target:target is lucky
+			if = { limit = { luck = yes } subtract_variable = { which = opinion_reduction value = 50 } }
+			#Diplomatic reputation
+			export_to_variable = {
+				which = dip_rep
+				value = modifier:diplomatic_reputation
+				who = FROM
+			}
+			if = {
+				limit = { check_variable = { which = dip_rep value = 1 } }
+				multiply_variable = { which = dip_rep value = 10 }
+				subtract_variable = { which = opinion_reduction which = dip_rep }
+			}
+		}
+		
+		#Set opinion modifier
+		if = { limit = {  NOT = { check_variable = { which = opinion_reduction value = 10 } } } ROOT = { add_opinion = { who = event_target:target modifier = spread_rumor_one_hundred } } }
+		if = { limit = { AND = { check_variable = { which = opinion_reduction value = 10 } NOT = { check_variable = { which = opinion_reduction value = 20 } } } } ROOT = { add_opinion = { who = event_target:target modifier = spread_rumor_ninety } } }
+		if = { limit = { AND = { check_variable = { which = opinion_reduction value = 20 } NOT = { check_variable = { which = opinion_reduction value = 30 } } } } ROOT = { add_opinion = { who = event_target:target modifier = spread_rumor_eighty } } }
+		if = { limit = { AND = { check_variable = { which = opinion_reduction value = 30 } NOT = { check_variable = { which = opinion_reduction value = 40 } } } } ROOT = { add_opinion = { who = event_target:target modifier = spread_rumor_seventy } } }
+		if = { limit = { AND = { check_variable = { which = opinion_reduction value = 40 } NOT = { check_variable = { which = opinion_reduction value = 50 } } } } ROOT = { add_opinion = { who = event_target:target modifier = spread_rumor_sixty } }	}
+		if = { limit = { AND = { check_variable = { which = opinion_reduction value = 50 } NOT = { check_variable = { which = opinion_reduction value = 60 } } } } ROOT = { add_opinion = { who = event_target:target modifier = spread_rumor_fifty } } }
+		if = { limit = { AND = { check_variable = { which = opinion_reduction value = 60 } NOT = { check_variable = { which = opinion_reduction value = 70 } } } } ROOT = { add_opinion = { who = event_target:target modifier = spread_rumor_fourty } } }
+		if = { limit = { AND = { check_variable = { which = opinion_reduction value = 70 } NOT = { check_variable = { which = opinion_reduction value = 80 } } } } ROOT = { add_opinion = { who = event_target:target modifier = spread_rumor_thirty } } }
+		if = { limit = { AND = { check_variable = { which = opinion_reduction value = 80 } NOT = { check_variable = { which = opinion_reduction value = 90 } } } } ROOT = { add_opinion = { who = event_target:target modifier = spread_rumor_twenty } } }
+		if = { limit = { AND = { check_variable = { which = opinion_reduction value = 90 } NOT = { check_variable = { which = opinion_reduction value = 100 } } } } ROOT = { add_opinion = { who = event_target:target modifier = spread_rumor_fifteen } } }
+		if = { limit = { AND = { check_variable = { which = opinion_reduction value = 100 } NOT = { check_variable = { which = opinion_reduction value = 200 } } } } ROOT = { add_opinion = { who = event_target:target modifier = spread_rumor_ten } } }
+		if = { limit = { check_variable = { which = opinion_reduction value = 200 } } ROOT = { add_opinion = { who = event_target:target modifier = spread_rumor_five } } }
+	}
+}
+
+country_event = {
+	id = spread_rumor.2
+	title = spread_rumor.2.t
+	desc = spread_rumor.2.d
+	picture = ACCUSATION_eventPicture
+
+	is_triggered_only = yes
+	hidden = yes
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = { has_country_flag = spread_rumors }
+				clr_country_flag = spread_rumors
+			}
+		}
+	}
+
+	option = {
+		name = spread_rumor.2.o
+	}
+}

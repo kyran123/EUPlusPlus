@@ -12,10 +12,23 @@
 
 assassination_backfired = {
 	opinion = -25
-	yearly_decay = 1
+	yearly_decay = 5
 }
 
 received_knowledge_sharing = {
 	opinion = 10
-	yearly_decay = 1
+	yearly_decay = 5
 }
+
+spread_rumor_one_hundred = { opinion = -100 yearly_decay = 3 }
+spread_rumor_ninety = { opinion = -90 yearly_decay = 3 }
+spread_rumor_eighty = { opinion = -80 yearly_decay = 3 }
+spread_rumor_seventy = { opinion = -70 yearly_decay = 3 }
+spread_rumor_sixty = { opinion = -60 yearly_decay = 3 }
+spread_rumor_fifty = { opinion = -50 yearly_decay = 3 }
+spread_rumor_fourty = { opinion = -40 yearly_decay = 3 }
+spread_rumor_thirty = { opinion = -30 yearly_decay = 3 }
+spread_rumor_twenty = { opinion = -20 yearly_decay = 3 }
+spread_rumor_fifteen = { opinion = -15 yearly_decay = 3 }
+spread_rumor_ten = { opinion = -10 yearly_decay = 3 }
+spread_rumor_five = { opinion = -5 yearly_decay = 3 }
